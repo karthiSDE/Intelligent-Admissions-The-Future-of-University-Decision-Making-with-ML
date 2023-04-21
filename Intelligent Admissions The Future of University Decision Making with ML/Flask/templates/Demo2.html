@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   
+    <title>index</title>
+    <style>
+    div h1{
+        color:blue;
+        font-size: 2.7em;
+    }
+    div h2{
+        color:black;
+        font-size: 2em;
+    }
+    div button{
+        color: skyblue;
+        border: 1px solid skyblue;
+        padding: 10px;
+        border-radius:5px ;
+    }
+    body{
+        background-image: url('../static/pic.jpg');
+        /* background-repeat: no-repeat; */
+    }
+    </style>
+</head>
+<body>
+    <div class="Login">
+        <h1>UNIVERSITY ADMISSION PREDICTION SYSTEM</h1>
+        <h2>Enter your details and get probability of your admission</h2>
+    <form action="{{ url_for('y_predict')}}" method="post">
+        Enter GRE Score <input type="text" name="gre" placeholder="GRE Score (out of 340)" required="required"><br><br>
+        Enter TOEFL Score <input type="text" name="toefl" placeholder="TOEFL Score (out of 120)" required="required"><br><br>
+        Select University No<br> <input type="radio" name="rating" value="1">1<br>
+        <input type="radio" name="rating" value="2">2<br>
+        <input type="radio" name="rating" value="3">3<br>
+        <input type="radio" name="rating" value="4">4<br>
+        <input type="radio" name="rating" value="5">5<br><br>
+        Enter SOP Score <input type="text" name="sop" placeholder="SOP (out of 5)" required="required"><br><br>
+        Enter LOR Score <input type="text" name="lor" placeholder="LOR (out of 5)" required="required"><br><br>
+        Enter CGPA Score <input type="text" name="cgpa" placeholder="CGPA (out of 10)" required="required"><br><br>
+        Research<br> <input type="radio" name="research" value="1">Research <br>
+        <input type="radio" name="research" value="0">No Research <br>
+        
+        <button type="submit" class="bin btn-default">Predict</button>
+    
+    </form>
+    {{prediction_text}}
+    </div>
+</body>
+</html>
